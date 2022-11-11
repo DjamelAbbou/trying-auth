@@ -1,5 +1,5 @@
-import { getUsers } from "@/api/users";
-import { jsonify } from "@/modules/db";
+//import { getUsers } from "@/api/users";
+//import { jsonify } from "@/modules/db";
 import Container from "@/ui/container";
 
 export default function HomePage({ users = [] }) {
@@ -8,6 +8,7 @@ export default function HomePage({ users = [] }) {
   );
 }
 
+/*
 export async function getServerSideProps({ ctx }) {
   const users = await getUsers();
 
@@ -17,6 +18,7 @@ export async function getServerSideProps({ ctx }) {
     },
   };
 }
+*/
 // export function withValidations(Component) {
 //   return function wrappedComponent({}) {
 //     const [errors, setErrors] = useState([]);
