@@ -4,19 +4,20 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapater } from "@next-auth/mongodb-adapter";
 
 export default NextAuth({
+  adapter: MongoDBAdapater(dbPromise),
   session: {
     strategy: "jwt",
   },
   providers: [
     CredentialsProvider({
-      name: "credentials",
+      type: "credentials",
       credentials: {},
       async authorize(credentials, req) {
         const { username, password } = credentials;
         const user = await (await dbPromise)
           .db()
           .collection("users")
-          .find(user);
+          .find({ username, password });
 
         if (user) {
           return user;
@@ -26,5 +27,4 @@ export default NextAuth({
       },
     }),
   ],
-  adapter: MongoDBAdapater(dbPromise),
 });
