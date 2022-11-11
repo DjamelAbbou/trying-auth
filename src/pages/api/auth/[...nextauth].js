@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapater } from "@next-auth/mongodb-adapter";
 
 export default NextAuth({
-  adapter: MongoDBAdapater(dbPromise),
+  adapter: MongoDBAdapater(await dbPromise),
   session: {
     strategy: "jwt",
   },
