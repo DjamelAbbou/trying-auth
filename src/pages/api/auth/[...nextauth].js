@@ -15,7 +15,10 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       type: "credentials",
-      credentials: {},
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials, req) {
         const { username, password } = credentials;
         const user = await (await clientPromise)
