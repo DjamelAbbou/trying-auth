@@ -1,6 +1,7 @@
 //import { getUsers } from "@/api/users";
 //import { jsonify } from "@/modules/db";
 import Container from "@/ui/container";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 export default function HomePage({ users = [] }) {
@@ -76,7 +77,12 @@ function SignUp({}) {
       </div>
       <div
         className="flex items-center justify-center border-2 border-red-500 rounded-lg p-4 w-40"
-        onClick={() => {}}
+        onClick={() => {
+          fetch("/api/signup-user", {
+            method: "POST",
+            body: user,
+          });
+        }}
       >
         Sign Up
       </div>
