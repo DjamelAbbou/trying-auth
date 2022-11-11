@@ -1,5 +1,5 @@
 import createHandler from "next-connect";
-import dbPromise from "@/modules/db";
+import clientPromise from "@/modules/db";
 
 const handler = createHandler();
 
@@ -29,13 +29,13 @@ export async function persistUser({ _id, name, email, address }) {
             }
           );
 
-  const obj = fn(await (await dbPromise).db().collection("posts"));
+  const obj = fn(await (await clientPromise).db().collection("posts"));
 
   return obj;
 }
 
 export async function getUsers(filter = {}) {
-  return await (await dbPromise)
+  return await (await clientPromise)
     .db()
     .collection("users")
     .find(filter)
