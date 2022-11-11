@@ -78,7 +78,7 @@ function SignUp({}) {
         className="flex items-center justify-center border-2 border-red-500 rounded-lg p-4 w-40"
         onClick={() => {}}
       >
-        Sign Up{" "}
+        Sign Up
       </div>
     </div>
   );
